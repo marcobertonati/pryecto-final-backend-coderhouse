@@ -142,6 +142,7 @@ El proyecto está construido bajo el patrón MVC agrupado bajo distintas carpeta
 📁 views: contiene las diferentes vistas construidas a partir de handlesbars
 
 📝 index.js: el proyecto es ejecutado a partir del archivo
+
 📝 server.js: contiene la configuración del servidor
         
 
