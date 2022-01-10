@@ -230,28 +230,72 @@ Luego destruirá la propiedad cartSession y renderizará la página inicial.
 
 
 #### 👕 routesProducts 
-.post("/api/product/create") ➡️
+.post("/api/product/create") ➡️ Crear productos para que queden grabados en la tienda. Recibe en su req.body:
+```
+{
+    title: nombre del producto,
+    price: precio del producto,
+    thumbnail: url de la imagne del producto,
+    timestamp: fecha de carga del producto,
+    description: descripción del producto,
+    code: código SKUD del producto,
+    category: categoría del producto,
+    stock: stock del producto,
+}
+
+```
+Luego redirecciona a .get('/productos/agregar) que renderiza nuevamente la vista para agregar más productos a la tienda.
 
 
-.get("/api/product/:id") ➡️
+.get("/api/product/:id") ➡️ Busca productos por su id. Recibe el mismo por parámetro (req.params.id), ejemplo:
+```
+/api/product/6144ca225dd28c2628026a3b
+```
+Luego renderiza página de detalle de producto.
 
 
-.get("/api/product/", productController.findAll) ➡️
+.get("/api/product/") ➡️ Busca todos los productos. Luego renderiza página con todos los de producto.
 
 
-.patch("/api/product/update/:id") ➡️
+.patch("/api/product/update/:id") ➡️ Actualiza producto por id que ingresa mediante parámetro (req.params.id), y recibe por su body el campo que desea actualizar, ejemplo:
+
+Producto a actualizar:
+```
+/api/product/update/6144ca225dd28c2628026a3b
+```
+Información que podrá actualizar actualizar:
+```
+{
+    title: nombre del producto,
+    price: precio del producto,
+    thumbnail: url de la imagne del producto,
+    timestamp: fecha de carga del producto,
+    description: descripción del producto,
+    code: código SKUD del producto,
+    category: categoría del producto,
+    stock: stock del producto,
+}
+
+```
+Devuelve un JSON con la información del producto actualizado.
 
 
-.delete("/api/product/delete/:id") ➡️ 
+
+.delete("/api/product/delete/:id") ➡️ Borra producto de la tienda. Ingresa su id mediante req.params.id, ejemplo:
+```
+/api/product/delete/6144ca225dd28c2628026a3b
+```
+Devuelve un JSON con la información de que el producto ha sido eliminado.
 
 
-.get("/api/product/category/:category") ➡️ 
+.get("/api/product/category/:category") ➡️ Busca productos por su categoria. Recibe el mismo por parámetro (req.params.category), ejemplo:
+```
+/api/product/category/accesorio
+```
+Luego renderiza página con todos los productos que cumplan con dicha categoria.
 
 
-
-
-Las siguientes rutas no tienen utilidad del lado del cliente:
-
+__Las siguientes rutas no tienen utilidad del lado del cliente:__
 
 .get("/api/product/title/:title", productController.getByName) ➡️
 
