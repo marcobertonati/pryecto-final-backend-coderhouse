@@ -1,0 +1,81 @@
+const response = [
+  {
+    id: "6144c8bc5dd28c2628026a33mock1",
+    title: "Remera: Producto 1 de mock",
+    price: 1000,
+    thumbnail:
+      "https://essential.vteximg.com.br/arquivos/ids/400713-1000-1000/962-1451_1.jpg",
+    timestamp: "20/11/2021",
+    description: "Descripción de Remera: Producto 1 de mock",
+    category: "remera",
+    code: "741963825",
+    stock: 13,
+    __v: 0,
+  },
+  {
+    id: "6144c8bc5dd28c2628026a33mock2",
+    title: "Pantalón: Producto 2 de mock",
+    price: 1000,
+    thumbnail:
+      "https://d2r9epyceweg5n.cloudfront.net/stores/001/135/230/products/58889a992b78c-399963-500x5001-bf98e93a3a92d0c6f515866956812150-640-0.jpg",
+    timestamp: "20/11/2021",
+    description: "Pantalón: Descripción 2 de mock",
+    category: "pantalon",
+    code: "741963825",
+    stock: 13,
+    __v: 0,
+  },
+  {
+    id: "6144c8bc5dd28c2628026a33mock3",
+    title: "Guantes: Producto 3 de mock",
+    price: 1000,
+    thumbnail: "https://m.media-amazon.com/images/I/81vH7bV7WpL._AC_SX425_.jpg",
+    timestamp: "20/11/2021",
+    description: "Guantes: Descripción 3 de mock",
+    category: "accesorios",
+    code: "741963825",
+    stock: 13,
+    __v: 0,
+  },
+  {
+    id: "6144c8bc5dd28c2628026a33mock4",
+    title: "Remera: Producto 4 de mock",
+    price: 2000,
+    thumbnail:
+      "https://pacogarcia.vteximg.com.br/arquivos/ids/165980-1000-1000/RemeraPuma-845895-06-Perfil1.jpg",
+    timestamp: "20/11/2021",
+    description: "Remera: Descripción 4 de mock",
+    category: "remera",
+    code: "967413528",
+    stock: 13,
+    __v: 0,
+  },
+  {
+    id: "6144c8bc5dd28c2628026a33mock5",
+    title: "Remera: Producto 5 de mock",
+    price: 3000,
+    thumbnail:
+      "https://sporting.vteximg.com.br/arquivos/ids/372859-1000-1000/6GJ6472-000-1.jpg",
+    timestamp: "20/11/2021",
+    description: "Remera: Descripción 5 de mock",
+    category: "remera",
+    code: "158743698",
+    stock: 13,
+    __v: 0,
+  },
+  {
+    id: "6144c8bc5dd28c2628026a33mock6",
+    title: "Pantalón: Producto 6 de mock",
+    price: 5000,
+    thumbnail:
+      "https://http2.mlstatic.com/D_NQ_NP_663153-MLA47177170105_082021-V.jpg",
+    timestamp: "20/11/2021",
+    description: "Pantalón: Descripción 6 de mock",
+    category: "pantalon",
+    code: "111111896",
+    stock: 13,
+    __v: 0,
+  },
+];
+
+module.exports = response;

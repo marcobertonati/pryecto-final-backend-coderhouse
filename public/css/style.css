@@ -1,0 +1,17 @@
+h2 {
+  color: blue;
+}
+
+.user-chat {
+  color: blue;
+  font-weight: bold;
+}
+
+.date-chat {
+  color: brown;
+}
+
+.msg-chat {
+  color: green;
+  font-style: italic;
+}

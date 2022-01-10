@@ -1,0 +1,61 @@
+{{#if response.founded}}
+
+  <h2>Detalle de producto</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Detalle de producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Icono/Imagen</th>
+        <th scope="col">Cantidad a agregar</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>{{response.productsFinded.id}}</td>
+        <td>{{response.productsFinded.title}}</td>
+        <td>{{response.productsFinded.description}}</td>
+        <td>{{response.productsFinded.price}}</td>
+        <td><img
+            class="img-fluid"
+            width="80px"
+            src=""
+            alt="Imagen de {{response.productsFinded.title}}"
+            srcset="{{response.productsFinded.thumbnail}}"
+          />
+        </td>
+        <!--Imágenes desde https://www.iconfinder.com/iconsets/clothes-outfit-line-shop-aholic-->
+        <td>
+
+          <button
+            class="btn btn-primary btn-rest"
+            onclick="restQuantity('{{response.productsFinded.id}}')"
+          >- </button>
+
+          <span
+            id={{response.productsFinded.id}}
+            class="quantity-product"
+          >0</span>
+
+          <button
+            class="btn btn-primary btn-add"
+            onclick="addQuantity('{{response.productsFinded.id}}')"
+          >+ </button>
+
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn btn-secondary" onclick="addProducts()">
+    Agregar al carrito
+  </button>
+
+{{else}}
+  <h2>Producto no encontrado</h2>
+{{/if}}

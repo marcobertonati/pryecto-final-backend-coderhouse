@@ -1,0 +1,35 @@
+<h2>Checkout</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cantidad</th>
+
+    </tr>
+  </thead>
+
+  <tbody id="tbody-products-on-cart">
+    {{#each response}}
+    <tr id="{{this.product.id}}-tr">
+      <td>{{this.product.id}}</td>
+      <td>{{this.product.title}}</td>
+      {{!-- <td>{{this.quantity}}</td> --}}
+      <td>
+
+        <button class="btn btn-primary btn-rest" onclick="restQuantity('{{this.product.id}}')">- </button>
+
+        <span id={{this.product.id}} class="quantity-product">{{this.quantity}}</span>
+
+        <button class="btn btn-primary btn-add" onclick="addQuantity('{{this.product.id}}')">+ </button>
+
+      </td>
+
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
+
+<button class="btn btn-primary" onclick="buyCart()"> ¡Comprar!</button>

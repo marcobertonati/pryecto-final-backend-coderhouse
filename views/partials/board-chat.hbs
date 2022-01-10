@@ -1,0 +1,36 @@
+<h3>Centro de Mensajes</h3>
+
+<label for="email" class="form-label">Correo Electrónico de Usuario:</label>
+<input type="email" name="email" id="email" class="form-control">
+
+<label for="firstName" class="form-label">Primer nombre:</label>
+<input type="text" name="firstName" id="firstName" class="form-control">
+
+<label for="lastName" class="form-label">Apellido:</label>
+<input type="text" name="lastName" id="lastName" class="form-control">
+
+<label for="age" class="form-label">Edad:</label>
+<input type="text" name="age" id="age" class="form-control">
+
+<label for="alias" class="form-label">Alias:</label>
+<input type="text" name="alias" id="alias" class="form-control">
+
+<label for="avatar" class="form-label">Imagen Avatar:</label>
+<input type="text" name="avatar" id="avatar" class="form-control">
+
+
+<label for="message-chat" class="form-label">Mensaje:</label>
+<input type="text" name="message-chat" id="message-chat" class="form-control">
+
+<button id="btn-sendchat" class="btn btn-primary">Enviar Mensaje</button>
+
+<h4>Board Chat</h4>
+<div style="border: 1px solid black;" id="chat-board">
+
+{{#each allMsgChat}}
+
+<p>{{this.author.id}} dice: {{this.text}}</p>
+
+{{/each}}
+
+</div>

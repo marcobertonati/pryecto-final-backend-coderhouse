@@ -1,0 +1,40 @@
+<h2>Agregar productos</h2>
+
+<form id="form-product" action="http://localhost:8080/api/product/create" method="POST" class="container">
+  <div class="mb-3">
+    <label for="title" class="form-label">Nombre del producto</label>
+    <input required type="text" class="form-control" id="title" name="title" placeholder="Ingrese nombre del producto"/>
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Descripción del producto</label>
+    <input required type="text" class="form-control" id="description" name="description" placeholder="Ingrese descripción del producto"/>
+  </div>
+
+  <div class="mb-3">
+    <label for="category" class="form-label">Categoría</label>
+    <input required type="text" class="form-control" id="category" name="category" placeholder="Ingrese categoria del producto"/>
+  </div>
+
+  <div class="mb-3">
+    <label for="price" class="form-label">Precio del producto</label>
+    <input required type="text" class="form-control" id="price" name="price" placeholder="Ingrese Precio del producto"/>
+  </div>
+
+  <div class="mb-3">
+    <label for="thumbnail" class="form-label">Imagen del producto</label>
+    <input required type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Ingrese URL de Imagen del producto"/>
+  </div>
+
+  <div class="mb-3">
+    <label for="code" class="form-label">Codigo SKUD</label>
+    <input required type="text" class="form-control" id="code" name="code" placeholder="Ingrese SKUD del producto"/>
+  </div>
+
+  <div class="mb-3">
+    <label for="stock" class="form-label">Stock</label>
+    <input required type="text" class="form-control" id="stock" name="stock" placeholder="Ingrese stock del producto"/>
+  </div>
+
+  <button id="btn-addproduct" type="submit" class="btn btn-primary">Agregar producto</button>
+</form>

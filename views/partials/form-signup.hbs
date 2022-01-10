@@ -1,0 +1,66 @@
+<h2>Formulario de Registro:</h2>
+
+
+<form id="form-product" action="/api/signup" method="POST" class="container" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre:</label>
+    <input required type="text" class="form-control" id="name" name="name" />
+  </div>
+
+  <div class="mb-3">
+    <label for="lastname" class="form-label">Apellido:</label>
+    <input required type="text" class="form-control" id="lastname" name="lastname" />
+  </div>
+
+  <div class="mb-3">
+    <label for="age" class="form-label">Edad:</label>
+    <input required type="text" class="form-control" id="age" name="age" />
+  </div>
+
+  <div class="mb-3">
+    <label for="number" class="form-label">Número de teléfono:</label>
+
+     <select id="select-prefix"name="select">
+      {{#each prefixNumber}}
+      <option id='prefix-number' value="{{2}}">{{0}}</option>
+      {{/each}}
+    </select>
+    <input required type="text" class="form-control" id="number" name="number" />
+  </div>
+  
+  <div class="mb-3">
+    <label for="address" class="form-label">Dirección:</label>
+    <input required type="text" class="form-control" id="address" name="address" />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email:</label>
+    <input required type="email" class="form-control" id="email" name="email" />
+  </div>
+
+  <div class="mb-3">
+    <label for="avatar" class="form-label">URL avatar:</label>
+    <input required type="file" class="form-control" id="avatar" name="avatar" />
+    <p>Recuerda utilizar un URL que finalice en .jpg</p>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password:</label>
+    <input required onchange="onHandleInputChange()" type="password" class="form-control" id="password" name="password" />
+  </div>
+
+  <div class="mb-3">
+    <label for="passwordConfirmed" class="form-label">Ingrese nuevamente su contraseña:</label>
+    <input required onchange="onHandleInputChange()" type="password" class="form-control" id="passwordConfirmed" name="passwordConfirmed" />
+  </div>
+
+  <button disabled class="btn btn-primary" id="btn-signUp" type="submit" class="btn btn-primary">¡Registrarme!</button>
+</form>
+
+  {{!-- <a class="btn btn-primary" href="http://localhost:8080/auth/facebook"> Iniciar Facebook</a> --}}
+
+
+{{!-- <div id="session-success"> --}}
+
+</div>

@@ -1,0 +1,23 @@
+<form
+  id="search-by-price"
+  action="/buscar/precio"
+  method="GET"
+  class="container"
+>
+  <div class="mb-3">
+    <label for="minvalue" class="form-label">Valor mínimo:</label>
+    <input type="text" class="form-control" id="minvalue" name="minvalue" />
+  </div>
+
+  <div class="mb-3">
+    <label for="maxvalue" class="form-label">Valor máximo:</label>
+    <input type="text" class="form-control" id="maxvalue" name="maxvalue" />
+  </div>
+
+  <button
+    class="btn btn-primary"
+    id="btn-search-by-price"
+    type="submit"
+    class="btn btn-primary"
+  >Buscar productos entre rango de precios</button>
+</form>

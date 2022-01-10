@@ -1,0 +1,50 @@
+<h2>Lista de productos</h2>
+
+{{#if noProducts.state}}
+
+<h3>{{noProducts.msg}}</h3>
+
+{{else}}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Icono/Imagen</th>
+            <th scope="col">Cantidad a agregar</th>
+            <th scope="col">Más información</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each response.productsFinded}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.price}}</td>
+            <td><img class="img-fluid" width="80px" src="" alt="Imagen de {{this.title}}" srcset="{{this.thumbnail}}" />
+            </td>
+            <!--Imágenes desde https://www.iconfinder.com/iconsets/clothes-outfit-line-shop-aholic-->
+            <td>
+
+                <button class="btn btn-primary btn-rest" onclick="restQuantity('{{this.id}}')">- </button>
+
+                <span id={{this.id}} class="quantity-product">0</span>
+
+                <button class="btn btn-primary btn-add" onclick="addQuantity('{{this.id}}')">+ </button>
+
+            </td>
+            <td><a class="btn btn-primary" href="/productos/detalle/{{this.id}}">Detalles</a></td>
+
+        </tr>
+        {{/each}}
+
+    </tbody>
+</table>
+{{/if}}
+
+<button class="btn btn-secondary" onclick="addProducts()">
+    Agregar al carrito
+</button>
