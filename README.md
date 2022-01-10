@@ -192,7 +192,8 @@ Hay además 2 rutas (/auth/facebok y /auth/facebook/callback) en caso de utiliza
 
 
 #### routesCart 🛒
-.post(/api/cart/post-session) ➡️ recibe por req.body un Array de objetos que contiene { id: id del producto, quantity: número con la cantidad agregada }. Si la sesion no tiene la propiedad cartSession la crea y agrega los productos encontrados. Si existe una cartSession busca si existen mismo productos en el cart para cambiarle la cantidad, y si no existen los agrega. Luego redirige a:
+.post(/api/cart/post-session) ➡️ recibe por req.body un Array de objetos que contiene { id: id del producto, quantity: número con la cantidad agregada }. Si la sesion no tiene la propiedad cartSession la crea y agrega los productos encontrados. Si existe una cartSession busca si existen mismo productos en el cart para cambiarle la cantidad, y si no existen los agrega. Luego redirige a: 👇
+
 .get(/api/cart/get-session) ➡️ que captura el cartSession de nuestra sesion y renderiza la vista del carrito.
 
 
@@ -202,7 +203,7 @@ Hay además 2 rutas (/auth/facebok y /auth/facebook/callback) en caso de utiliza
 .post(/api/message/create) ➡️ recibe del req.body:
 ```
 { author: 
----------{firstName: nombre del usuario, lastName: apellido del usuario, age: edad del usuario, alias: alias del usuario, avatar: link url de imagen, date: fecha de creación del mensaje }
+        {firstName: nombre del usuario, lastName: apellido del usuario, age: edad del usuario, alias: alias del usuario, avatar: link url de imagen, date: fecha de creación del mensaje }
  text: texto del chat
 }
 ```
