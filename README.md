@@ -295,7 +295,7 @@ Devuelve un JSON con la información de que el producto ha sido eliminado.
 Luego renderiza página con todos los productos que cumplan con dicha categoria.
 
 
-🚨 __Las siguientes rutas no tienen utilidad del lado del cliente:__
+#### 🚨 __Las siguientes rutas no tienen utilidad del lado del cliente:__
 
 .get("/api/product/title/:title") ➡️ Devuelve producto según su title (nombre) que recibe mediante parametro (req.body.title), ejemplo:
 ```
@@ -339,6 +339,59 @@ Luego renderiza página con todos los productos que cumplan con dicha categoria.
 }
 ```
 Devuelve un JSON informando que el mensaje de chat se creo satisfactoriamente.
+
+
+#### 🖼️ routesView
+.get("/") ➡️ Si el usuario no está autenticado renderizará la vista de logín, pero si está autenticado renderizará la página con el listado de todos los productos.
+
+
+.get("/productos/vista") ➡️ Renderiza página con todos los productos
+
+
+.get("/productos/agregar") ➡️ Renderiza página para agregar productos.
+
+
+.get("/productos/:category") ➡️ Renderiza página con la categoría de productos que le ha llegado por parametro.
+
+
+.get("/productos/detalle/:id") ➡️ Renderiza la página de detalle de producto (id) que le ha llegado por parametro.
+
+
+.get("/buscar/precio?") ➡️ Responde un JSON con el rango de precios establecido mediante query (req.query). __Funcionalidad en desarrollo.__
+
+
+.get("/carrito/vista") ➡️ Renderiza la página del checkout del carrito.
+
+
+.get("/purchase-completed") ➡️ Renderiza la página de compra finalizada.
+
+
+.get("/chat-view") ➡️ Renderiza la página de chat general.
+
+
+.get("/chat/:email") ➡️ Rendeiza la página con los chat de una persona en particular indicada mediante parametro (req.params.email).
+
+
+.get("/login") ➡️ Renderiza pantalla de login.
+
+
+.get("/signup") ➡️ Renderiza pantalla de registro.
+
+
+.get("/welcome") ➡️ Renderiza pantalla de bienvenida.
+
+
+.get("/goodbye") ➡️ Renderiza pantalla de despedida o deslogueo.
+
+
+.get("/error-login") ➡️ Renderiza pantalla de error de inicio de sesion.
+
+
+.get("/error-signup") ➡️ Renderiza pantalla de error de registro.
+
+
+.get("/server-config") ➡️ Renderiza pantalla de configuración de la APP si es ADMIN=TRUE.
+
 
 
 #### 💻 routesProcessInfo 
