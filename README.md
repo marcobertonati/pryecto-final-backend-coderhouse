@@ -119,7 +119,9 @@ npm run prod -- --portCLI=8060 --expirationSessionCLI=600000
 El proyecto está construido bajo el patrón MVC agrupado bajo distintas carpetas:
 
 📁 __ test __: contiene los mockup con los que funciona la app en modo develompemnt
+
 📁 public: contiene los archivos estáticos que brinda la app
+
 📁 src: contiene la aplicación en si misma
     📁 auth: contiene los controladores de autenticación
             📁 bcrypt: contiene configuración
