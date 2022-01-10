@@ -148,7 +148,7 @@ El proyecto está construido bajo el patrón MVC agrupado bajo distintas carpeta
 
 
 ## Autores [@marco.bertonati](https://www.linkedin.com/in/marcobertonati/) ✒️
-_Proyecto del curso de [ReactJS por Coderhouse](https://www.coderhouse.com/online/programacion-backend)_
+_Proyecto del curso de [Programación Backend por Coderhouse](https://www.coderhouse.com/online/programacion-backend)_
 comisión-13440-pb-online
 * **Sebastián Vallejo Rojas** - *Profesor del curso de Programación Backend* 👨🏻‍🏫
 * **Juan Collado** - *Tutor de clase* 👨‍💻
