@@ -6,14 +6,6 @@ https://proyecto-final-backend-ch.herokuapp.com/
 ```
 
 
-## ¿Cómo funciona? 🤔
-
-La app busca tener un user flow bastante simple para lograr ventas rápidas ¡Chequea el link para que veas como funciona!
-```
-https://drive.google.com/drive/folders/1K4DKFYXskUpt03Nn8TiOTfjNh7g7yOJy?usp=sharing
-```
-
-
 ## Desarrollo 💻
 
 La aplicación se desarrolla en **NodeJS** utilizando el framework **Express** y como base de datos **MongoDB** en su versión online **MongoAtlas**.
@@ -24,7 +16,7 @@ Las notificaciones al correo electrónico las manejamos con **nodemailer** y las
 
 El chat está implementado en base a la tecnología **Websocket (socket.io)**.
 
-Utilzamos con generador de vista **Handlesbars**.
+Utilzamos como motor de plantillas **Handlesbars**.
 
 __También utiliza las siguientes tecnologías__:
 * axios
@@ -102,7 +94,7 @@ Modo desarrollo ➡️ es necesario archivo development.env
 npm run dev
 ```
 
-### Especificacion de CLI para iniciar el proyecto
+### Especificación de CLI para iniciar el proyecto
 Utilizamos el modulo **Yargs** en caso de querer cofigurar ciertos parámetros por consola:
 
 * --portCLI= Numero de puerto, por ejemplo 3000
