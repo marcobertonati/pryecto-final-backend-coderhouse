@@ -192,9 +192,41 @@ Hay además 2 rutas (/auth/facebok y /auth/facebook/callback) en caso de utiliza
 
 
 #### routesCart 🛒
-.post(/api/cart/post-session) ➡️ recibe por req.body un Array de objetos que contiene { id: id del producto, quantity: número con la cantidad agregada }. Si la sesion no tiene la propiedad cartSession la crea y agrega los productos encontrados. Si existe una cartSession busca si existen mismo productos en el cart para cambiarle la cantidad, y si no existen los agrega. Luego redirige a: 👇
+.post(/api/cart/post-session) ➡️ recibe por req.body un Array de objetos que contiene 
+```
+{   id: id del producto, 
+    quantity: número con la cantidad agregada 
+}
+```
+
+Si la sesion no tiene la propiedad cartSession la crea y agrega los productos encontrados. Si existe una cartSession busca si existen mismo productos en el cart para cambiarle la cantidad, y si no existen los agrega. Luego redirige a: 👇
 
 .get(/api/cart/get-session) ➡️ que captura el cartSession de nuestra sesion y renderiza la vista del carrito.
+
+
+#### routesOrder 📋
+.post(/api/order/create) ➡️  recibe en su body:
+{   id: id del producto, 
+    quantity: número con la cantidad agregada 
+}
+Buscará los ID de todos los productos y los pusheará al **finalCart** con el que se cretará la orden:
+```
+{
+    productsOnCart: [array de los productos ingresados],
+    orderNumber: número de orden,
+    timestamp: fecha de creación de la orden,
+    state: estado de la orden,
+    email: mail de la persona que solicitó la orden
+}  
+```
+Luego destruirá la propiedad cartSession y renderizará la página inicial.
+
+
+.get(/api/order) ➡️ devuelve todas las ordenes creadas
+
+
+#### routesProducts 💻
+
 
 
 #### routesMessagesChat 💬
@@ -216,7 +248,10 @@ Hay además 2 rutas (/auth/facebok y /auth/facebook/callback) en caso de utiliza
 Devuelve un JSON informando que el mensaje de chat se creo satisfactoriamente.
 
 
-#### routesOrder 📋
+#### routesProcessInfo 💻
+.get(/info) ➡️ renderiza la información del servidor de la aplicación
+
+
 
 
 
