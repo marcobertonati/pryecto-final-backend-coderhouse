@@ -230,18 +230,38 @@ Luego destruirá la propiedad cartSession y renderizará la página inicial.
 
 
 #### 👕 routesProducts 
-.post("/api/product/create")
-.get("/api/product/:id")
-.get("/api/product/", productController.findAll)
-.patch("/api/product/update/:id")
-.delete("/api/product/delete/:id")
-.get("/api/product/category/:category")
+.post("/api/product/create") ➡️
+
+
+.get("/api/product/:id") ➡️
+
+
+.get("/api/product/", productController.findAll) ➡️
+
+
+.patch("/api/product/update/:id") ➡️
+
+
+.delete("/api/product/delete/:id") ➡️ 
+
+
+.get("/api/product/category/:category") ➡️ 
+
+
 
 
 Las siguientes rutas no tienen utilidad del lado del cliente:
+
+
 .get("/api/product/title/:title", productController.getByName) ➡️
+
+
 .get("/api/product/code/:code", productController.getByCode) ➡️
+
+
 .post("/api/product/price/search", productController.getByPrice) ➡️ 
+
+
 .get("/api/product/stock/search", productController.getByStock) ➡️
 
 
