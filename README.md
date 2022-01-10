@@ -160,7 +160,7 @@ El proyecto está construido bajo el patrón MVC agrupado bajo distintas carpeta
 ## Rutas (endpoints) 🛣️
 
 #### 🔐 routesAuth
-.post(/api/signup) ➡️ se envian mediante req.body la información necesaria para poder registrar un usuario
+.post("/api/signup") ➡️ se envian mediante req.body la información necesaria para poder registrar un usuario
 
 ```
 name: req.body.name,
@@ -172,27 +172,27 @@ email: req.body.email,
 avatar: `/static/avatar/${req.file.filename}`,
 password: createHash(req.body.password),
 ```
-.get(/failsignup) ➡️ en caso de error en el registro se redireccionada a .get(/error-sigunp) el cual renderiza vista de signup indicado que hubo un error.
-Si el usuario es creado correctamente se redirige a .get(/login) que renderiza la vista de login en handlebars.
+.get("/failsignup") ➡️ en caso de error en el registro se redireccionada a .get("/error-sigunp") el cual renderiza vista de signup indicado que hubo un error.
+Si el usuario es creado correctamente se redirige a .get("/login") que renderiza la vista de login en handlebars.
 
 
-.post(/api/login) ➡️ se envia mediante req.body la información necesaria para poder iniciar sesión.
+.post("/api/login") ➡️ se envia mediante req.body la información necesaria para poder iniciar sesión.
 ```
 req.body.email
 req.body.password
 ```
-.get(/failogin) ➡️ en caso de error en el login se redirecciona a .get(/error-login) que renderiza la vista de login indicando que hubo un error.
-Si el usuario se logea correctamente se redirige a .get(/productos/vista) que renderiza una vista con una tabla con todos los productos
+.get("/failogin") ➡️ en caso de error en el login se redirecciona a .get("/error-login") que renderiza la vista de login indicando que hubo un error.
+Si el usuario se logea correctamente se redirige a .get("/productos/vista") que renderiza una vista con una tabla con todos los productos
 
 
-.post(/api/logout) ➡️ deslogea y destruye la sesion creada y redirecciona a .get(/goodbye) que renderiza la vista de que ha terminado su sesión.
+.post("/api/logout") ➡️ deslogea y destruye la sesion creada y redirecciona a .get("/goodbye") que renderiza la vista de que ha terminado su sesión.
 
 
-Hay además 2 rutas (/auth/facebok y /auth/facebook/callback) en caso de utilizar passport-facebook. La misma no se encuentra implementada como servicio al cliente.
+Hay además 2 rutas ("/auth/facebok" y "/auth/facebook/callback") en caso de utilizar passport-facebook. La misma no se encuentra implementada como servicio al cliente.
 
 
 #### 🛒 routesCart 
-.post(/api/cart/post-session) ➡️ recibe por req.body un Array de objetos que contiene 
+.post("/api/cart/post-session") ➡️ recibe por req.body un Array de objetos que contiene 
 ```
 {   
     id: id del producto, 
@@ -202,14 +202,17 @@ Hay además 2 rutas (/auth/facebok y /auth/facebook/callback) en caso de utiliza
 
 Si la sesion no tiene la propiedad cartSession la crea y agrega los productos encontrados. Si existe una cartSession busca si existen mismo productos en el cart para cambiarle la cantidad, y si no existen los agrega. Luego redirige a: 👇
 
-.get(/api/cart/get-session) ➡️ que captura el cartSession de nuestra sesion y renderiza la vista del carrito.
+.get("/api/cart/get-session") ➡️ que captura el cartSession de nuestra sesion y renderiza la vista del carrito.
 
 
 #### 📋 routesOrder 
-.post(/api/order/create) ➡️  recibe en su body:
-{   id: id del producto, 
+.post("/api/order/create") ➡️  recibe en su body:
+```
+{   
+    id: id del producto, 
     quantity: número con la cantidad agregada 
 }
+```
 Buscará los ID de todos los productos y los pusheará al **finalCart** con el que se cretará la orden:
 ```
 {
@@ -223,37 +226,47 @@ Buscará los ID de todos los productos y los pusheará al **finalCart** con el q
 Luego destruirá la propiedad cartSession y renderizará la página inicial.
 
 
-.get(/api/order) ➡️ devuelve todas las ordenes creadas
+.get("/api/order") ➡️ devuelve todas las ordenes creadas
 
 
 #### 👕 routesProducts 
+.post("/api/product/create")
+.get("/api/product/:id")
+.get("/api/product/", productController.findAll)
+.patch("/api/product/update/:id")
+.delete("/api/product/delete/:id")
+.get("/api/product/category/:category")
 
+
+Las siguientes rutas no tienen utilidad del lado del cliente:
+.get("/api/product/title/:title", productController.getByName) ➡️
+.get("/api/product/code/:code", productController.getByCode) ➡️
+.post("/api/product/price/search", productController.getByPrice) ➡️ 
+.get("/api/product/stock/search", productController.getByStock) ➡️
 
 
 #### 💬 routesMessagesChat 
 🚨 ATENCIÓN: si bien las rutas existen, el servicio de chat se maneja a través de la tecnología websocket, no a través de pedidos http.
-.get(/api/message/list) ➡️ renderiza una vista del chat.
-.post(/api/message/create) ➡️ recibe del req.body:
+.get("/api/message/list") ➡️ renderiza una vista del chat.
+.post("/api/message/create") ➡️ recibe del req.body:
 ```
-{ author: { 
+{ 
+    author: { 
             firstName: nombre del usuario, 
             lastName: apellido del usuario,
             age: edad del usuario,
             alias: alias del usuario,
             avatar: link url de imagen,
             date: fecha de creación del mensaje 
-         }
-  text: texto del chat
+            }
+    text: texto del chat
 }
 ```
 Devuelve un JSON informando que el mensaje de chat se creo satisfactoriamente.
 
 
 #### 💻 routesProcessInfo 
-.get(/info) ➡️ renderiza la información del servidor de la aplicación
-
-
-
+.get("/info") ➡️ renderiza la información del servidor de la aplicación de el usuario es administrador
 
 
 
