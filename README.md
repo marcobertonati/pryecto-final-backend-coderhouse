@@ -159,7 +159,7 @@ El proyecto está construido bajo el patrón MVC agrupado bajo distintas carpeta
 
 ## Rutas (endpoints) 🛣️
 
-#### routesAuth
+#### 🔐 routesAuth
 .post(/api/signup) ➡️ se envian mediante req.body la información necesaria para poder registrar un usuario
 
 ```
@@ -191,10 +191,11 @@ Si el usuario se logea correctamente se redirige a .get(/productos/vista) que re
 Hay además 2 rutas (/auth/facebok y /auth/facebook/callback) en caso de utilizar passport-facebook. La misma no se encuentra implementada como servicio al cliente.
 
 
-#### routesCart 🛒
+#### 🛒 routesCart 
 .post(/api/cart/post-session) ➡️ recibe por req.body un Array de objetos que contiene 
 ```
-{   id: id del producto, 
+{   
+    id: id del producto, 
     quantity: número con la cantidad agregada 
 }
 ```
@@ -204,7 +205,7 @@ Si la sesion no tiene la propiedad cartSession la crea y agrega los productos en
 .get(/api/cart/get-session) ➡️ que captura el cartSession de nuestra sesion y renderiza la vista del carrito.
 
 
-#### routesOrder 📋
+#### 📋 routesOrder 
 .post(/api/order/create) ➡️  recibe en su body:
 {   id: id del producto, 
     quantity: número con la cantidad agregada 
@@ -225,11 +226,11 @@ Luego destruirá la propiedad cartSession y renderizará la página inicial.
 .get(/api/order) ➡️ devuelve todas las ordenes creadas
 
 
-#### routesProducts 💻
+#### 👕 routesProducts 
 
 
 
-#### routesMessagesChat 💬
+#### 💬 routesMessagesChat 
 🚨 ATENCIÓN: si bien las rutas existen, el servicio de chat se maneja a través de la tecnología websocket, no a través de pedidos http.
 .get(/api/message/list) ➡️ renderiza una vista del chat.
 .post(/api/message/create) ➡️ recibe del req.body:
@@ -248,7 +249,7 @@ Luego destruirá la propiedad cartSession y renderizará la página inicial.
 Devuelve un JSON informando que el mensaje de chat se creo satisfactoriamente.
 
 
-#### routesProcessInfo 💻
+#### 💻 routesProcessInfo 
 .get(/info) ➡️ renderiza la información del servidor de la aplicación
 
 
