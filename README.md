@@ -81,12 +81,12 @@ FACEBOOK_CLIENT_SECRET= Ingrese TOKEN de FB ID
 
 ## ¿Cómo inicar el servidor?
 
-Modo producción:
+Modo producción ➡️ es necesario archivo production.env
 ```
 npm run prod
 ```
 
-Modo desarrollo:
+Modo desarrollo ➡️ es necesario archivo development.env
 ```
 npm run dev
 ```
@@ -106,7 +106,7 @@ Utilizamos el modulo **Yargs** en caso de querer cofigurar ciertos parámetros p
 
 * --persistenceCLI= deberá ser "mongodb" o "memory"
 
-**ATENCIÖN** ➡️ es completamente necesario luego de ingresar por consola **npm run prod --** los doble flat (--) y luego, mediante doble flat y alguno de los parámetros de arriba cololar el valor
+**ATENCIÖN** ➡️ es completamente necesario luego de ingresar por consola **npm run prod --** los doble flat finales (--) y luego, mediante doble flat y alguno de los parámetros de arriba cololar el valor
 
 Ejemplo de CLI bien armado: 
 ```
