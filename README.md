@@ -202,9 +202,15 @@ Hay además 2 rutas (/auth/facebok y /auth/facebook/callback) en caso de utiliza
 .get(/api/message/list) ➡️ renderiza una vista del chat.
 .post(/api/message/create) ➡️ recibe del req.body:
 ```
-{ author: 
-        {firstName: nombre del usuario, lastName: apellido del usuario, age: edad del usuario, alias: alias del usuario, avatar: link url de imagen, date: fecha de creación del mensaje }
- text: texto del chat
+{ author: { 
+            firstName: nombre del usuario, 
+            lastName: apellido del usuario,
+            age: edad del usuario,
+            alias: alias del usuario,
+            avatar: link url de imagen,
+            date: fecha de creación del mensaje 
+         }
+  text: texto del chat
 }
 ```
 Devuelve un JSON informando que el mensaje de chat se creo satisfactoriamente.
