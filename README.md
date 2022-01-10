@@ -263,7 +263,7 @@ Producto a actualizar:
 ```
 /api/product/update/6144ca225dd28c2628026a3b
 ```
-Información que podrá actualizar actualizar:
+Información que podrá actualizar:
 ```
 {
     title: nombre del producto,
@@ -295,18 +295,30 @@ Devuelve un JSON con la información de que el producto ha sido eliminado.
 Luego renderiza página con todos los productos que cumplan con dicha categoria.
 
 
-__Las siguientes rutas no tienen utilidad del lado del cliente:__
+🚨 __Las siguientes rutas no tienen utilidad del lado del cliente:__
 
-.get("/api/product/title/:title", productController.getByName) ➡️
-
-
-.get("/api/product/code/:code", productController.getByCode) ➡️
-
-
-.post("/api/product/price/search", productController.getByPrice) ➡️ 
+.get("/api/product/title/:title") ➡️ Devuelve producto según su title (nombre) que recibe mediante parametro (req.body.title), ejemplo:
+```
+/api/product/title/remera
+```
 
 
-.get("/api/product/stock/search", productController.getByStock) ➡️
+.get("/api/product/code/:code") ➡️ Devuelve producto según su code (codigo SKUD) que recibe mediante parametro (req.body.code), ejemplo:
+```
+/api/product/code/741963258
+```
+
+
+.post("/api/product/price/search") ➡️ Devuelve productos según rango de precios que recibe mediante query (req.query), ejemplo:
+```
+/api/product/price/search?minvalue=100&maxvalue=5000
+```
+
+
+.get("/api/product/stock/search") ➡️ Devuelve productos según rango de stock que recibe mediante query (req.query), ejemplo:
+```
+/api/product/stock/search?stockmin=10&stockmax=20
+```
 
 
 #### 💬 routesMessagesChat 
