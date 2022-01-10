@@ -2,11 +2,11 @@
 
 App deployada en:
 ```
-https://proyecto-final-backend-ch.herokuapp.com/login
+https://proyecto-final-backend-ch.herokuapp.com/
 ```
 
 
-## ¿Cómo funciona? 💡
+## ¿Cómo funciona? 🤔
 
 La app busca tener un user flow bastante simple para lograr ventas rápidas ¡Chequea el link para que veas como funciona!
 ```
@@ -16,13 +16,13 @@ https://drive.google.com/drive/folders/1K4DKFYXskUpt03Nn8TiOTfjNh7g7yOJy?usp=sha
 
 ## Desarrollo 💻
 
-La aplicación se desarrolla en NodeJS utilizando el framework Express y como base de datos MongoDB en su versión online MongoAtlas.
+La aplicación se desarrolla en **NodeJS** utilizando el framework **Express** y como base de datos **MongoDB** en su versión online **MongoAtlas**.
 
-Para la autenticación y la autorización utilizamos el modulo de passport-local, combinado la encriptación de las contraseñas con bcrypt.
+Para la autenticación y la autorización utilizamos el modulo de **passport-local**, combinado la encriptación de las contraseñas con **bcrypt**.
 
-Las notificaciones al correo electrónico las manejamos con nodemailer y las correspondientes a SMS y Whatsapp con twilio.
+Las notificaciones al correo electrónico las manejamos con **nodemailer** y las correspondientes a SMS y Whatsapp con **twilio**.
 
-El chat está implementado en base a la tecnología Websocket (socket.io).
+El chat está implementado en base a la tecnología **Websocket (socket.io)**.
 
 
 
@@ -45,10 +45,10 @@ npm install
 ```
 
 Deberás crear 2 variables de entorno:
-development.env
-production.env
+* development.env
+* production.env
 
-Chequear en .env.examples lo necesario para correr correctamente la aplicación:
+Chequear en .env.example lo necesario para correr correctamente la aplicación:
 ```
 //.env EXAMPLE
 NODE_ENV=production
@@ -92,22 +92,27 @@ npm run dev
 ```
 
 ### Especificacion de CLI para iniciar el proyecto
-Utilizamos Yargs para leer las propiedades:
+Utilizamos el modulo **Yargs** en caso de querer cofigurar ciertos parámetros por consola:
 
---portCLI= Numero de puerto, por ejemplo 3000
---mongouriCLI= URL de Mongo, por ejemplo mongodb+srv://{USUARIO}:{CONTRASEÑA}@cluster1.gplx5.mongodb.net/{BASE DE DATOS}?retryWrites=true&w=majority
---notifyMailCLI= mail donde se van a enviar las notificaciones de correo electrónico, por ejemplo: marko.bertonati@gmail.com
---passMailCLI= contraseña del correo electrónico
---expirationSessionCLI= duración de la expresión expresado en milisegundos
---persistenceCLI= deberá ser "mongodb" o "memory"
+* --portCLI= Numero de puerto, por ejemplo 3000
 
-Ejemplo de CLI bien armado: npm run prod -- --port=8060
+* --mongouriCLI= URL de Mongo, por ejemplo mongodb+srv://{USUARIO}:{CONTRASEÑA}@cluster1.gplx5.mongodb.net/{BASE DE DATOS}?retryWrites=true&w=majority
 
-npm run prod -- portCLI=7060 mongouriCLI==mongodb+srv://marco-bertonati:2kGJ3nrW694rYpGg@cluster1.gplx5.mongodb.net/ecommerce?retryWrites=true&w=majority notifyMailCLI=marco.n.bertonati@gmail.com passMailCLI=Irontallideth89* expirationSessionCLI=200000
+* --notifyMailCLI= mail donde se van a enviar las notificaciones de correo electrónico, por ejemplo: marko.bertonati@gmail.com
 
-npm run dev -- port_CLI=7060 mongouri_CLI==mongodb+srv://marco-bertonati:2kGJ3nrW694rYpGg@cluster1.gplx5.mongodb.net/ecommerce?retryWrites=true&w=majority notifyMail_CLI=marco.n.bertonati@gmail.com passMail_CLI=Irontallideth89* expirationSessionCLI=200000
+* --passMailCLI= contraseña del correo electrónico
 
-ATENCIÓN, luego de "npm run prod" deberá consignarse dos flat "--"; es decir quedaría como el ejemplo lo indica.
+* --expirationSessionCLI= duración de la expresión expresado en milisegundos
+
+* --persistenceCLI= deberá ser "mongodb" o "memory"
+
+**ATENCIÖN** ➡️ es completamente necesario luego de ingresar por consola **npm run prod --** los doble flat (--) y luego, mediante doble flat y alguno de los parámetros de arriba cololar el valor
+
+Ejemplo de CLI bien armado: 
+```
+npm run prod -- --portCLI=8060 --expirationSessionCLI=600000
+```
+
 
 ## Arquitectura de carpetas 🦴
 
