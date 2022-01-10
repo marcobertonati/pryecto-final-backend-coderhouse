@@ -44,14 +44,14 @@ Una vez clonado solo deberás instalar todas las dependencias:
 npm install
 ```
 
-Deberás crear 2 variables de entorno:
+Deberás crear 2 variables de entorno para poder ejecutar la app en ambos ambientes:
 * development.env
 * production.env
 
 Chequear en .env.example lo necesario para correr correctamente la aplicación:
 ```
 //.env EXAMPLE
-NODE_ENV=production
+NODE_ENV=production 
 PERSISTENCE=mongodb
 IS_CLUSTER=true
 PORT_MANUAL=8080
@@ -116,6 +116,30 @@ npm run prod -- --portCLI=8060 --expirationSessionCLI=600000
 
 ## Arquitectura de carpetas 🦴
 
+El proyecto está construido bajo el patrón MVC agrupado bajo distintas carpetas:
+
+📁 __ test __: contiene los mockup con los que funciona la app en modo develompemnt
+📁 public: contiene los archivos estáticos que brinda la app
+📁 src: contiene la aplicación en si misma
+    📁 auth: contiene los controladores de autenticación
+            📁 bcrypt: contiene configuración
+    📁 config: configuraciones globales
+    📁 controller: contiene los controladores que responden a las rutas
+    📁 dal: contiene los diferentes accesos a la información de la persistencia
+            📁 memory
+            📁 mongoose
+    📁 graphql: contiene la configuración de graphql
+    📁 logger: contiene la configuración del módulo log4js
+    📁 mailing: contiene la configuración de nodemailer
+    📁 routes: contiene la configuración de todas las rutas
+    📁 services: contiene la lógica de negocio
+    📁 sms: contiene la configuración de twilio
+    📁 utils: contiene diversos archivos que sirve a diferentes controladores
+📁 views: contiene las diferentes vistas construidas a partir de handlesbars
+
+📝 index.js: el proyecto es ejecutado a partir del archivo
+📝 server.js: contiene la configuración del servidor
+        
 
 
 ## Autores [@marco.bertonati](https://www.linkedin.com/in/marcobertonati/) ✒️
