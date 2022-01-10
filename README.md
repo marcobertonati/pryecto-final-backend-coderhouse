@@ -395,7 +395,7 @@ Devuelve un JSON informando que el mensaje de chat se creo satisfactoriamente.
 
 
 #### 💻 routesProcessInfo 
-.get("/info") ➡️ renderiza la información del servidor de la aplicación.
+.get("/info") ➡️ Renderiza la información del servidor de la aplicación.
 
 
 
