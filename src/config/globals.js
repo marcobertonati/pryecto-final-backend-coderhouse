@@ -9,7 +9,7 @@ const {
 } = require("yargs").argv;
 
 /*Definimos los valores que pueden llegar a entrar por CLI, si no entran se establecen por defecto */
-const PORT = portCLI === undefined ? 8080 : portCLI;
+const PORT_MANUAL = portCLI === undefined ? process.env.PORT : portCLI;
 const MONGOURI =
   mongouriCLI === undefined ? process.env.MONGO_URI : mongouriCLI;
 const NOTIFYMAIL =
@@ -29,7 +29,7 @@ module.exports = {
   /*Definidos por CLI, o por default según NODE_ENV */
   NODE_ENV: process.env.NODE_ENV,
   MONGO_URI: MONGOURI,
-  PORT: PORT,
+  PORT: process.env.PORT || PORT_MANUAL,
   PERSISTENCE: PERSISTENCE,
   EXPIRATION_SESSION: EXPIRATIONSESSION,
   GMAIL_USER: NOTIFYMAIL,
