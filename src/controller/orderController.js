@@ -36,7 +36,6 @@ const orderController = (service) => {
         // const idUser = { _id: req.session.passport.user._id };
         // const cartAddToUser = await user.addCartToUser(idUser, finalCart);
 
-
         /*Si está en MEMORY no se ejecutaran estos servicios a fin de evitar spam y gasto de saldo */
         if (PERSISTENCE === "mongodb") {
           const emailSubject = `Nuevo pedido de: ${req.session.passport.user.name} @ mail: ${req.session.passport.user.email}`;
@@ -58,8 +57,7 @@ const orderController = (service) => {
 
         delete req.session.cartSession;
 
-        res.render("./pages/welcome");
-        
+        res.status(201).render("./pages/welcome");
       } catch (error) {
         console.log(error);
         const errorMsg = {
@@ -74,12 +72,45 @@ const orderController = (service) => {
     getAllOrder: async (req, res, next) => {
       try {
         const response = await service.getAllOrders();
-        res.json(response);
+        res.status(200).json(response);
       } catch (error) {
         console.log(error);
         const errorMsg = {
           message: `No se encontró ordenes.`,
           orderFinded: false,
+          error: error,
+        };
+        res.status(400).json(errorMsg);
+      }
+    },
+
+    getOneOrder: async (req, res, next) => {
+      try {
+        console.log("Ingresó a getOneOrder");
+        const { id } = req.params;
+        const response = await service.getOneOrder(id);
+        res.status(200).json(response);
+      } catch (error) {
+        console.log(error);
+        const errorMsg = {
+          message: `No se encontró orden con id ${id}.`,
+          orderFinded: false,
+          error: error,
+        };
+        res.status(400).json(errorMsg);
+      }
+    },
+
+    deleteOneOrder: async (req, res, next) => {
+      try {
+        const { id } = req.params;
+        const response = await service.deleteOneOrder(id);
+        res.status(200).json(response);
+      } catch (error) {
+        console.log(error);
+        const errorMsg = {
+          message: `No se encontró orden con id ${id}.`,
+          orderDeleted: false,
           error: error,
         };
         res.status(400).json(errorMsg);

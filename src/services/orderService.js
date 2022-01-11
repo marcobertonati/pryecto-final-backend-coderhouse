@@ -25,9 +25,38 @@ module.exports = class {
     try {
       return await this.orderModel.find();
     } catch (error) {
+      console.log(error);
       const errorMsg = {
         message: `No se encontró ordenes.`,
         orderFinded: false,
+        error: error,
+      };
+      res.status(400).json(errorMsg);
+    }
+  }
+
+  async getOneOrder(id) {
+    try {
+      return await this.orderModel.findById(id);
+    } catch (error) {
+      console.log(error);
+      const errorMsg = {
+        message: `No se encontró orden con id ${id}.`,
+        orderFinded: false,
+        error: error,
+      };
+      res.status(400).json(errorMsg);
+    }
+  }
+
+  async deleteOneOrder(id) {
+    try {
+      return await this.orderModel.deleteById(id);
+    } catch (error) {
+      console.log(error);
+      const errorMsg = {
+        message: `No se encontró orden con id ${id}.`,
+        orderDeleted: false,
         error: error,
       };
       res.status(400).json(errorMsg);
