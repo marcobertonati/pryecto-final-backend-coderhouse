@@ -1,6 +1,5 @@
 const { productModelMongoose } = require("../../schemas/productsMongoose");
 const DTOmongoose = require("../../dto/dto.mongoose");
-/*Creo que en este constructor deberia hacer la conexión a la base de datos*/
 
 module.exports = class {
   constructor() {

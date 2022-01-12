@@ -86,15 +86,17 @@ FACEBOOK_CLIENT_SECRET= Ingrese TOKEN de FB ID
 
 Modo producción ➡️ es necesario archivo production.env
 ```
-npm run prod
+npm run prod -- --portCLI= número de puerto
 ```
 
 Modo desarrollo ➡️ es necesario archivo development.env
 ```
-npm run dev
+npm run dev --portCLI= número de puerto
 ```
 
-### Especificación de CLI para iniciar el proyecto
+🚨 Como verá, **siempre hay que especificar el --portCLI** ya que por defecto si no se ingresa se le asigna el asignado en process.env.PORT que se encuentra VACIO ya que **el proyecto está preparado para ser deployado en HEROKU y es necesario que esta variable esté vacía.**
+
+### Especificación opcionales CLI para iniciar el proyecto
 Utilizamos el modulo **Yargs** en caso de querer cofigurar ciertos parámetros por consola:
 
 * --portCLI= Numero de puerto, por ejemplo 3000
@@ -218,7 +220,16 @@ Buscará los ID de todos los productos y los pusheará al **finalCart** con el q
 Luego destruirá la propiedad cartSession y renderizará la página inicial.
 
 
-.get("/api/order") ➡️ devuelve todas las ordenes creadas
+.get("/api/order") ➡️ Devuelve todas las ordenes creadas.
+
+
+.get("/api/order/id/:id") ➡️ Recibe por parametro (req.params.id) el id de la orden y lo devuelve.
+
+
+.delete("/api/order/id/:id") ➡️ Recibe por parametro (req.params.id) el id de la orden y lo devuelve.
+
+
+.patch("/api/order/id/:id") ➡️ Recibe por parametro (req.params.id) el id de la orden y por req.body los detalles para modificar la orden. Dicha funcionalidad se encuntra en desarrollo y estudio ya que una orden no debería poder modificar ya que se encuentra generada.
 
 
 #### 👕 routesProducts 
@@ -272,7 +283,6 @@ Información que podrá actualizar:
 Devuelve un JSON con la información del producto actualizado.
 
 
-
 .delete("/api/product/delete/:id") ➡️ Borra producto de la tienda. Ingresa su id mediante req.params.id, ejemplo:
 ```
 /api/product/delete/6144ca225dd28c2628026a3b
@@ -313,8 +323,49 @@ Luego renderiza página con todos los productos que cumplan con dicha categoria.
 ```
 
 
+#### 👩‍🦱 routesUser
+.post("/api/user/create") ➡️ Recibe por req.body la información del usuario a crear:
+```
+name: req.body.name,
+lastname: req.body.lastname,
+age: req.body.age,
+number: req.body.number,
+address: req.body.address,
+email: req.body.email,
+avatar: req.file.filename},
+password: req.body.password,
+```
+Prestar atención a que **avatar** espera un file.
+La password será encriptada con bcrypt.
+
+
+.get("/api/user/") ➡️ Devuelve el listado de todos los usuarios.
+
+
+.get("/api/user/:id") ➡️ Devuelve usuario correspondiente al parametro id (req.params.id).
+
+
+.get("/api/user/email/:email") ➡️ Devuelve usuario correspondiente al parametro email (req.params.email).
+
+
+.delete("/api/user/:id") ➡️ Eliminar usuario correspondiente al parametro id (req.params.id).
+
+
+.patch("/api/user/:id") ➡️ Modifica usuario correspondiente al parametro id (req.params.id) según la información que venga en el body (req.body):
+```
+name: req.body.name,
+lastname: req.body.lastname,
+age: req.body.age,
+number: req.body.number,
+address: req.body.address,
+email: req.body.email,
+avatar: req.file.filename},
+password: req.body.password,
+```
+
+
 #### 💬 routesMessagesChat 
-🚨 ATENCIÓN: si bien las rutas existen, el servicio de chat se maneja a través de la tecnología websocket, no a través de pedidos http.
+🚨 ATENCIÓN: si bien las rutas existen, el servicio de chat se maneja a través de la tecnología websocket, no a través de pedidos http a través de express.
 .get("/api/message/list") ➡️ renderiza una vista del chat.
 .post("/api/message/create") ➡️ recibe del req.body:
 ```

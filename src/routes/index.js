@@ -13,7 +13,8 @@ const routesAuth = require("./routesAuth");
 const routerAuth = express.Router();
 const routesProcessInfo = require("./routesProcessInfo");
 const routerProcessInfo = express.Router();
-
+const routesUser = require("./routesUser");
+const routerUser = express.Router();
 /*Rutas a las view */
 const routesView = require("./routesView");
 const routerViews = express.Router();
@@ -24,6 +25,7 @@ module.exports = routesConfig = (app) => {
   app.use(routesOrder(routerOrder));
   app.use(routesAuth(routerAuth));
   app.use(routesView(routerViews));
+  app.use(routesUser(routerUser));
   app.use(routesProcessInfo(routerProcessInfo));
 
   /*La ruta de MessagesChat es solo de prueba de fucionamiento, ya qe todo el chat de maneja desde socket.io: \src\services\messagesIOchat.js */

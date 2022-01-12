@@ -62,4 +62,18 @@ module.exports = class {
       res.status(400).json(errorMsg);
     }
   }
+
+  async updateOneOrder(id, payload) {
+    try {
+      return await this.orderModel.updateById(id, payload);
+    } catch (error) {
+      console.log(error);
+      const errorMsg = {
+        message: `No se encontró orden con id ${id}.`,
+        orderUpdated: false,
+        error: error,
+      };
+      res.status(400).json(errorMsg);
+    }
+  }
 };

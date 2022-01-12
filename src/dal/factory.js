@@ -44,14 +44,14 @@ class PersistenceFactory {
         console.log("[Persistence] : Default => Memory");
         const persistenceDefaultProduct = require("../dal/memory/dao/models/productDao.memory");
         const persistenceDefaultUser = require("../dal/memory/dao/models/userDao.memory");
-        const messagesRepositoryIndex = require("../dal/memory/repositories/index");
         const persistenceDefaultOrder = require("../dal/memory/dao/models/orderDao.memory");
+        const messagesRepositoryIndex = require("../dal/memory/repositories/index");
 
         return {
           persistenceProduct: new persistenceDefaultProduct(),
           persistenceUser: new persistenceDefaultUser(),
-          persistenceMessages: messagesRepositoryIndex.messagesRepository,
           persistenceOrder: new persistenceDefaultOrder(),
+          persistenceMessages: messagesRepositoryIndex.messagesRepository,
         };
     }
   };

@@ -8,8 +8,6 @@ const userFBSchema = new Schema({
     lastName : { type: String },
     email: { type: String },
     photo: { type: String }
-
-
 })
 
 userFBSchema.plugin(findOrCreate);

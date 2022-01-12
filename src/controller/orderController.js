@@ -116,6 +116,23 @@ const orderController = (service) => {
         res.status(400).json(errorMsg);
       }
     },
+
+    async updateOneOrder(req, res, next) {
+      try {
+        const { id } = req.params;
+        const { body } = req;
+        const response = await service.updateOneOrder(id, body);
+        res.status(200).json(response);
+      } catch (error) {
+        console.log(error);
+        const errorMsg = {
+          message: `No se encontró orden con id ${id}.`,
+          orderUpdated: false,
+          error: error,
+        };
+        res.status(400).json(errorMsg);
+      }
+    },
   };
 };
 

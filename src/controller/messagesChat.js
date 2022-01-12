@@ -46,8 +46,10 @@ exports.getAllMsgChat = async (req, res, next) => {
 
     const normalizedChat = normalize(historyChat, chatSchema);
 
-    /*
+    /* ¡ATENCIÓN!
+
     Se han comentado las opciones según como se ejecuta la APP. Actualmente se ejecuta el chat bajo socketIO; por lo cual lo que renderiza es solo la página.
+
     */
 
     //Sirve para cuando hay renderizado del lado del cliente

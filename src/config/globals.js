@@ -9,7 +9,7 @@ const {
 } = require("yargs").argv;
 
 /*Definimos los valores que pueden llegar a entrar por CLI, si no entran se establecen por defecto */
-const PORT_MANUAL = portCLI === undefined ? process.env.PORT : portCLI;
+const PORT_MANUAL = portCLI === undefined ? process.env.PORT : portCLI; // tener en cuenta que esta en process.env.PORT para que cuando se deploye en HEROKU sea este el que le pase el puerto.
 const MONGOURI =
   mongouriCLI === undefined ? process.env.MONGO_URI : mongouriCLI;
 const NOTIFYMAIL =
